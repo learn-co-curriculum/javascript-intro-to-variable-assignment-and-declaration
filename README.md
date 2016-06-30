@@ -23,7 +23,7 @@ Variables are assigned values using the = operator. Variable names are typically
 Lets say I have the variable `word`. We could, if we wanted to, write
 
 ``` javascript
-word = 'bird'
+word = 'bird';
 ```
 
 in order to create our variable and assign it the value of the string `'bird'`. Thing is, now we've declared a _global variable_. Global variables can be accessed anywhere in an application, which can lead to strange behavior. What if, for example, we wanted `word`'s value to be something other than `'bird'` at some point in the application? Or what if we needed to make use of a variable called `word` but not _this particular `word`_?
@@ -50,7 +50,7 @@ console.log(word); // 'bird'
 // assign another value to the variable
 word = 'dog';
 
-console.log(word) // 'dog'
+console.log(word); // 'dog'
 ```
 
 Now we have declared a local variable `word`, and we can assign and reassign its value as we please.
@@ -106,11 +106,11 @@ Sometimes, information changes — we have to scratch out old notes and scribble
 In JavaScript, we can simply reassign the new value to the variable.
 
 ``` javascript
-var myNote = "Get milk"
+var myNote = "Get milk";
 
 // later on
 
-myNote = "Get cookies"
+myNote = "Get cookies";
 ```
 
 When we change the value of a variable, _we do not use `var` again_. We simply use the `=` to give the variable a new value.
