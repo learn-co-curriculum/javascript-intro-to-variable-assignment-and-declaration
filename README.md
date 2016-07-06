@@ -1,5 +1,4 @@
-JavaScript Variables
----
+# JavaScript Variables
 
 ## Objectives
 
@@ -114,3 +113,5 @@ myNote = "Get cookies";
 ```
 
 When we change the value of a variable, _we do not use `var` again_. We simply use the `=` to give the variable a new value.
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/javascript-intro-to-variable-assignment-and-declaration'>JavaScript Variable Assignment and Declaration</a> on Learn.co and start learning to code for free.</p>
