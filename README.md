@@ -12,6 +12,8 @@
 
 Sometimes, we need to store a piece of information so that we can refer to it — often multiple times — later on. In real life, we would probably jot down a note in a notebook or on a post-it.
 
+![note](https://i.chzbgr.com/full/4950590208/h52A02E59/)
+
 In programming, we use _variables_. Variables in JavaScript are used to store data that will be used in our program. A variable can point to almost any type of value including numbers, strings, arrays, objects, and functions.
 
 Variables are assigned values using the = operator. Variable names are typically all lower case; in the case of multiple words, the words are joined together using lowerCamelCase.
@@ -25,7 +27,11 @@ Lets say I have the variable `word`. We could, if we wanted to, write
 word = 'bird'
 ```
 
-in order to create our variable and assign it the value of the string `'bird'`. Thing is, now we've declared a _global variable_. Global variables can be accessed anywhere in an application, which can lead to strange behavior. What if, for example, we wanted `word`'s value to be something other than `'bird'` at some point in the application? Or what if we needed to make use of a variable called `word` but not _this particular `word`_?
+in order to create our variable and assign it the value of the string `'bird'`. Thing is, now we've declared a _global variable_. Global variables can be accessed anywhere in an application, which can lead to strange behavior.
+
+Using a global variable is like passing someone a note on a billboard. Sure, it gets the message across, but way more people than necessary now have the message.
+
+What if, for example, we wanted `word`'s value to be something other than `'bird'` at some point in the application? Or what if we needed to make use of a variable called `word` but not _this particular `word`_?
 
 In the browser, global variables are all properties of `window`. What is `window`? Well, it's the — erm — window in which the browser displays the current page. It holds a whole bunch of things (which is probably obvious), global variables among them.
 
