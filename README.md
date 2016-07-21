@@ -41,6 +41,8 @@ Clearly globals aren't the way to go.
 
 In the olden days (1995), JavaScript had one way to declare a non-global variable, `var`. Using the keyword `var` creates _local variable_, meaning that it is only accessible inside the current function in which it is declared. (If it's not declared inside a function, it's actually still global!)
 
+**Flat fact**: What's a function? Well, functions are ways of organizing our code so that we can run it repeatedly. We'll talk more about functions in a bit, but we need to mention them here because they're _vital_ to understanding variable scope in JavaScript (which we will tackle in greater depth when we cover functions). Don't worry too much right now about what exactly a function is; we just want to get used to seeing the word.
+
 Here's how this works — follow along in your console!
 
 ``` javascript
