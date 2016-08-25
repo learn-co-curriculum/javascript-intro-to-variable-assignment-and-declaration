@@ -1,5 +1,9 @@
 # JavaScript Variables
 
+## Oveerview
+
+In this lesson, we'll introduce variables and how to declare them in Javascript. 
+
 ## Objectives
 
 1. Explain how to declare a variable in JavaScript
@@ -8,7 +12,7 @@
 4. Declare and define a variable
 5. Explain multi-line variable assignment
 
-## Introduction
+## What are Variables?
 
 Sometimes, we need to store a piece of information so that we can refer to it — often multiple times — later on. In real life, we would probably jot down a note in a notebook or on a post-it.
 
