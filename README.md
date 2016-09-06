@@ -1,6 +1,6 @@
 # JavaScript Variables
 
-## Oveerview
+## Overview
 
 In this lesson, we'll introduce variables and how to declare them in Javascript. 
 
