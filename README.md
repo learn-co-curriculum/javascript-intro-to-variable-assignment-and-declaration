@@ -78,7 +78,7 @@ We'll learn more about local and global variables in a later lesson. For now, kn
 
 ## Multi-line Variable Assignment
 
-Let's say I needed to declare and define multiple variables. It feels like a lot to have to repeat `var` over and over again. JavaScript allows us to do multi-line variable assignment to alleviate this pain. Every variable must be separated with a comma, and end the entire line must end with a semicolon.
+Let's say I needed to declare and define multiple variables. It feels like a lot to have to repeat `var` over and over again. JavaScript allows us to do multi-line variable assignment to alleviate this pain. Every variable must be separated with a comma, and the entire line must end with a semicolon.
 
 Let's condense the below code into one line:
 
