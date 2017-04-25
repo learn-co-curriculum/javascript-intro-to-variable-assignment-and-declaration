@@ -103,7 +103,7 @@ var a = 5,
 which can be converted to:
 
 ```javascript
-var a = 5, b = 2, c = 3, d = 'hello', e = 'goodbye'
+var a = 5, b = 2, c = 3, d = 'hello', e = 'goodbye';
 ```
 
 Try typing each variable in the console. You should see the appropriate values returned for each one.
