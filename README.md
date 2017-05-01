@@ -39,11 +39,11 @@ What if, for example, we wanted `word`'s value to be something other than `'bird
 
 In the browser, global variables are all properties of `window`. What is `window`? Well, it's the — erm — window in which the browser displays the current page. It holds a whole bunch of things (which is probably obvious), global variables among them.
 
-Clearly globals aren't the way to go.
+Accidentally setting variables to "global" is a dangerous, imprecise coding mistake.
 
 ### `var`
 
-In the olden days (1995), JavaScript had one way to declare a non-global variable, `var`. Using the keyword `var` creates _local variable_, meaning that it is only accessible inside the current function in which it is declared. (If it's not declared inside a function, it's actually still global!)
+In the olden days (1995), JavaScript had one way to declare a non-global variable, `var`. Using the keyword `var` creates _local variable_, meaning that it is only accessible inside the current function in which it is declared. (However, this is a bit tricky - If 'var' is not declared *inside* a function, it's actually still global!)
 
 **Flat fact**: What's a function? Well, functions are ways of organizing our code so that we can run it repeatedly. We'll talk more about functions in a bit, but we need to mention them here because they're _vital_ to understanding variable scope in JavaScript (which we will tackle in greater depth when we cover functions). Don't worry too much right now about what exactly a function is; we just want to get used to seeing the word.
 
@@ -72,7 +72,7 @@ We can perform variable declaration and assignment on the same line to save spac
 var word = 'bird'
 ```
 
-What does it mean that `word` is a local variable? Well, if we're just entering it in the console, not much — the variable still becomes a property of `window`, just like global variables (as mentioned above). (Go ahead, try typing `window.word` in the console — prepare to be amazed!)
+What does it mean that `word` is a local variable? Well, if we're just entering it in the console, not much — the variable still becomes a property of `window`, meaning... in this case, 'word" is a global variable (as mentioned above). (Go ahead, try typing `window.word` in the console — prepare to be amazed!)
 
 We'll learn more about local and global variables in a later lesson. For now, know that **you should always declare a variable with `var`**.
 
