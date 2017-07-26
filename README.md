@@ -1,129 +1,187 @@
 # JavaScript Variables
 
 ## Overview
-
-In this lesson, we'll introduce variables and how to declare them in Javascript. 
+In this lesson, we'll introduce JavaScript variables and explain how to declare, assign, and access them.
 
 ## Objectives
+1. Understand what a variable is.
+2. Describe how to name variables in JavaScript.
+3. Use `var` to create and access variables in pre-ES2015 code.
+4. Explain the basics of the variable lifecycle — the distinct declaration and assignment phases.
+5. Define when to use `const`, `let`, and `var` for declaring variables.
 
-1. Explain how to declare a variable in JavaScript
-2. Explain what variables are good for
-3. Declare a variable without assigning a value
-4. Declare and define a variable
-5. Explain multi-line variable assignment
+## What is a variable?
+A variable is a container in which we can store values for later retrieval.
 
-## What are Variables?
+Imagine a box that can hold any type of data: a number, string, boolean, object — even an `undefined`. We take some data that we want to store, place it inside the box, and hand the box off to the JavaScript engine, which stores it in memory. All done! Our data is safely cached until we need to access it again.
 
-Sometimes, we need to store a piece of information so that we can refer to it — often multiple times — later on. In real life, we would probably jot down a note in a notebook or on a post-it.
+![Raiders of the Lost Ark warehouse](https://user-images.githubusercontent.com/17556281/28639657-fea1930a-7216-11e7-8c38-45bc9fab96a7.gif)
 
-![note](https://i.chzbgr.com/full/4950590208/h52A02E59/)
+But wait! When we ask for the data back, how will the JavaScript engine know _which_ box to retrieve? We need to assign a name to our variable — a label for our box — so that we can tell the engine exactly which piece of stored data we want to access.
 
-In programming, we use _variables_. Variables in JavaScript are used to store data that will be used in our program. A variable can point to almost any type of value including numbers, strings, arrays, objects, and functions.
+## Naming variables
+If you're interested in an exhaustive discussion of what constitutes a valid variable name in JavaScript, [have fun](https://mathiasbynens.be/notes/javascript-identifiers). For almost every situation, follow these three rules, and you'll be fine:
+- Start every variable name with a lowercase letter. Variable names starting with a number are not valid.
+- Don't use spaces — `camelCaseYourVariableNames` instead of `snake_casing_them`.
+- Don't use JavaScript [reserved words](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Reserved_keywords_as_of_ECMAScript_2015) or [future reserved words](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Future_reserved_keywords).
 
-Variables are assigned values using the = operator. Variable names are typically all lower case; in the case of multiple words, the words are joined together using lowerCamelCase.
+It's important to note that case matters, so `javaScript`, `javascript`, `JavaScript`, and `JAVASCRIPT` are four different variables.
 
+## Initializing variables
+The `var` reserved word is the classic way to declare a variable. It's been around since the inception of JavaScript, and it's what you will encounter in any pre-ES2015 code (and in any sloppy code written after ES2015).
 
-## Declaring Variables
-
-Lets say I have the variable `word`. We could, if we wanted to, write
-
-``` javascript
-word = 'bird'
+Creating new variables in JavaScript is really a two-step process. First, we declare the variable...
+```js
+var pi;
+//=> undefined
 ```
 
-in order to create our variable and assign it the value of the string `'bird'`. Thing is, now we've declared a _global variable_. Global variables can be accessed anywhere in an application, which can lead to strange behavior.
-
-Using a global variable is like passing someone a note on a billboard. Sure, it gets the message across, but way more people than necessary now have the message.
-
-What if, for example, we wanted `word`'s value to be something other than `'bird'` at some point in the application? Or what if we needed to make use of a variable called `word` but not _this particular `word`_?
-
-In the browser, global variables are all properties of `window`. What is `window`? Well, it's the — erm — window in which the browser displays the current page. It holds a whole bunch of things (which is probably obvious), global variables among them.
-
-Accidentally setting variables to "global" is a dangerous, imprecise coding mistake.
-
-### `var`
-
-In the olden days (1995), JavaScript had one way to declare a non-global variable, `var`. Using the keyword `var` creates _local variable_, meaning that it is only accessible inside the current function in which it is declared. (However, this is a bit tricky - If 'var' is not declared *inside* a function, it's actually still global!)
-
-**Flat fact**: What's a function? Well, functions are ways of organizing our code so that we can run it repeatedly. We'll talk more about functions in a bit, but we need to mention them here because they're _vital_ to understanding variable scope in JavaScript (which we will tackle in greater depth when we cover functions). Don't worry too much right now about what exactly a function is; we just want to get used to seeing the word.
-
-Here's how this works — follow along in your console!
-
-``` javascript
-// declare the variable
-var word
-
-// assign a value to the variable
-word = 'bird'
-
-console.log(word) // 'bird'
-
-// assign another value to the variable
-word = 'dog'
-
-console.log(word) // 'dog'
+...and the JavaScript engine sets aside a chunk of memory to store the declared variable. Then, we assign a value to that variable:
+```js
+pi = 3.14159;
+//=> 3.14159
 ```
 
-Now we have declared a local variable `word`, and we can assign and reassign its value as we please.
-
-We can perform variable declaration and assignment on the same line to save space:
-
-``` javascript
-var word = 'bird'
+We can package both of the initialization steps — declaration and assignment — in a single line of code:
+```js
+var pi = 3.14159;
+//=> undefined
 ```
 
-What does it mean that `word` is a local variable? Well, if we're just entering it in the console, not much — the variable still becomes a property of `window`, meaning... in this case, 'word" is a global variable (as mentioned above). (Go ahead, try typing `window.word` in the console — prepare to be amazed!)
-
-We'll learn more about local and global variables in a later lesson. For now, know that **you should always declare a variable with `var`**.
-
-## Multi-line Variable Assignment
-
-Let's say I needed to declare and define multiple variables. It feels like a lot to have to repeat `var` over and over again. JavaScript allows us to do multi-line variable assignment to alleviate this pain. Every variable must be separated with a comma, and the entire line must end with a semicolon.
-
-Let's condense the below code into one line:
-
-```javascript
-var a = 5
-var b = 2
-var c = 3
-var d = 'hello'
-var e = 'goodbye'
+## Retrieving variables
+To retrieve a declared variable, simply refer to its name:
+```js
+pi;
+//=> 3.14159
 ```
 
-The above is equivalent to:
+## Variable values
+Upon declaration, all variables are automatically assigned the value of `undefined`. It's only after we assign a new value that the variable will contain something other than undefined. We can use the `typeof` operator to check the data type of the value currently stored in a variable:
+```js
+var language;
+//=> undefined
 
-```javascript
-var a = 5,
-    b = 2,
-    c = 3,
-    d = 'hello',
-    e = 'goodbye';
+typeof language;
+//=> "undefined"
+
+language = "JavaScript";
+//=> "JavaScript"
+
+typeof language;
+//=> "string"
 ```
 
-which can be converted to:
+Once a variable has been created with `var`, we can reassign it to our heart's content:
+```js
+var pi = 3.14159;
+//=> undefined
 
-```javascript
-var a = 5, b = 2, c = 3, d = 'hello', e = 'goodbye'
+typeof pi;
+//=> "number"
+
+pi = "the ratio between a circle's circumference and diameter";
+//=> "the ratio between a circle's circumference and diameter"
+
+typeof pi;
+//=> "string"
 ```
 
-Try typing each variable in the console. You should see the appropriate values returned for each one.
+The data that's stored in our variable might change over time, but at any moment we can retrieve its current contents:
+```js
+var language = "Mocha";
+//=> undefined
 
-Personally, we're of the opinion that it's best to declare each variable with its own `var` keyword. The comma fanciness saves a little bit of typing, but at the expense of nonstandard indentation (you're using two spaces, right?) and can introduce a bit of weirdness if we're doing anything other than simple assignment.
+language = "LiveScript";
+//=> "LiveScript";
 
-## Changing values
+language = "JavaScript";
+//=> "JavaScript";
 
-Sometimes, information changes — we have to scratch out old notes and scribble in revisions.
-
-In JavaScript, we can simply reassign the new value to the variable.
-
-``` javascript
-var myNote = "Get milk"
-
-// later on
-
-myNote = "Get cookies"
+language;
+//=> "JavaScript";
 ```
 
-When we change the value of a variable, _we do not use `var` again_. We simply use the `=` to give the variable a new value.
+## Beyond `var`
+As we alluded to earlier, there is almost no reason to use `var` in a post-ES2015 world. `var` comes with a ton of baggage in the form of scope issues, which we will discuss in the lesson on scope in JavaScript, and allowing developers to play a little too fast and loose with variable declarations.
+
+With `var`, no error is thrown if you declare a variable twice:
+```js
+var language = "Ruby";
+//=> undefined
+
+var language = "JavaScript";
+//=> undefined
+
+language;
+//=> "JavaScript"
+```
+
+This is bad! There's no reason to declare a variable twice, and it's usually a mistake by a developer unaware that the variable had already been declared.
+
+### `let`: the new `var`
+ES2015 introduced two new ways to create variables: `let` and `const`. Both solve all of `var`'s scope issues, which, again, we'll cover in the lesson on scope in JavaScript. Both also throw an error if you try to declare the same variable a second time:
+```js
+let pi = 3.14159;
+//=> undefined
+
+let pi = "the ratio between a circle's circumference and diameter";
+//=> Uncaught SyntaxError: Identifier 'pi' has already been declared
+```
+
+Just like with `var`, we can still reassign a variable declared with `let`:
+```js
+let pi = 3.14159;
+//=> undefined
+
+pi = "the ratio between a circle's circumference and diameter";
+//=> "the ratio between a circle's circumference and diameter"
+
+typeof pi;
+//=> "string"
+```
+
+### "Imma `let` you finish, but `const` is the best way to declare variables of all time"
+![Kanye](https://user-images.githubusercontent.com/17556281/28677639-21dd517e-72bc-11e7-9759-f8f2f69d34e0.gif)
+
+Using `let` instead of `var` will help you avoid silly errors like declaring the same variable at two different places within your code, but there's an even better option to use as your default: `const`.
+
+Declaring a variable with the `const` reserved word means that not only can it not be redeclared but it also ***cannot be reassigned***. This is a good thing for two reasons:
+1. When we assign a primitive value (a number, string, boolean, etc. — anything except an object) to a variable declared with `const`, we know that variable will _always_ contain the same value.
+2. When we assign an object to a variable declared with `const`, we know that variable will _always_ point to the same object (though the object's properties can still be modified — more on this in the lesson about objects in JavaScript).
+3. When another developer looks at our code and sees a `const` declaration, they immediately know that variable points to the same object or has the same value every other time it's referenced in the program. For variables declared with `let` or `var`, the developer cannot be so sure and will have to keep track of how those variables change throughout the program. The extra information provided by `const` is valuable, and it comes at no extra cost to you! Just use `const` as much as possible and reap the benefits.
+
+```js
+const pi = 3.14159;
+//=> undefined
+
+pi = 2.71828;
+//=> Uncaught TypeError: Assignment to constant variable.
+```
+
+***NOTE***: With `let`, it's possible to declare a variable without assigning a value, just like `var`:
+```js
+let pi;
+//=> undefined
+
+pi = 3.14159;
+//=> 3.14159
+```
+
+However, because `const` doesn't allow reassignment after the variable is initialized, we **must** assign a value right away:
+```js
+const pi;
+//=> Uncaught SyntaxError: Missing initializer in const declaration
+
+const pi = 3.14159;
+//=> undefined
+```
+
+## Handy reference on when to use `const` vs. `let` vs. `var`
+As your JavaScript powers increase with experience, you'll develop a more nuanced understanding of what to use where. However, for now, this is a good rule of thumb:
+- ***Use `var`...*** never.
+- ***Use `let`...*** when you know the value of a variable will change. For example, a `counter` variable that starts at `0` and is subsequently incremented to `1`, `2`, `3`, and so on. In the lessons on looping and iteration in JavaScript, `let` will have its moment in the spotlight.
+- ***Use `const`...*** for _every_ other variable.
+
+Best practice is to always declare variables with `const` and then, if you later realize that the value has to change over the course of your program, circle back to change it to `let`.
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/javascript-intro-to-variable-assignment-and-declaration'>JavaScript Variable Assignment and Declaration</a> on Learn.co and start learning to code for free.</p>
