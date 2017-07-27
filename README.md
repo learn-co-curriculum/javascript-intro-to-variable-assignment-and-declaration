@@ -20,10 +20,10 @@ Imagine a box that can hold any type of data: a number, string, boolean, object 
 But wait! When we ask for the data back, how will the JavaScript engine know _which_ box to retrieve? We need to assign a name to our variable — a label for our box — so that we can tell the engine exactly which piece of stored data we want to access.
 
 ## Naming variables
-If you're interested in an exhaustive discussion of what constitutes a valid variable name in JavaScript, [have fun](https://mathiasbynens.be/notes/javascript-identifiers). For almost every situation, follow these three rules, and you'll be fine:
+If you're interested in an exhaustive discussion of what constitutes a valid variable name in JavaScript, [have fun][valid variable names]. For almost every situation, follow these three rules, and you'll be fine:
 - Start every variable name with a lowercase letter. Variable names starting with a number are not valid.
 - Don't use spaces — `camelCaseYourVariableNames` instead of `snake_casing_them`.
-- Don't use JavaScript [reserved words](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Reserved_keywords_as_of_ECMAScript_2015) or [future reserved words](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Future_reserved_keywords).
+- Don't use JavaScript [reserved words][reserved words] or [future reserved words][future reserved words].
 
 It's important to note that case matters, so `javaScript`, `javascript`, `JavaScript`, and `JAVASCRIPT` are four different variables.
 
@@ -183,5 +183,17 @@ As your JavaScript powers increase with experience, you'll develop a more nuance
 - ***Use `const`...*** for _every_ other variable.
 
 Best practice is to always declare variables with `const` and then, if you later realize that the value has to change over the course of your program, circle back to change it to `let`.
+
+## Resources
+- [MDN — Language basics crash course: Variables](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics#Variables)
+- [Valid JavaScript variable names in ECMAScript 6][valid variable names]
+- [MDN — `var`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
+- [MDN — `let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
+- [MDN — `const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+- [JavaScript ES6+: `var`, `let`, or `const`?](https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75)
+
+[valid variable names]: https://mathiasbynens.be/notes/javascript-identifiers-es6
+[reserved words]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Reserved_keywords_as_of_ECMAScript_2015
+[future reserved words]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Future_reserved_keywords
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/javascript-intro-to-variable-assignment-and-declaration'>JavaScript Variable Assignment and Declaration</a> on Learn.co and start learning to code for free.</p>
