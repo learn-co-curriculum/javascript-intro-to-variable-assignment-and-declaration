@@ -20,7 +20,7 @@ Imagine a box that can hold any type of data: a number, string, boolean, object 
 But wait! When we ask for the data back, how will the JavaScript engine know _which_ box to retrieve? We need to assign a name to our variable — a label for our box — so that we can tell the engine exactly which piece of stored data we want to access.
 
 ## Naming variables
-If you're interested in an exhaustive discussion of what constitutes a valid variable name in JavaScript, [have fun][valid variable names]. For almost every situation, follow these three rules, and you'll be fine:
+There are a number of complicated rules governing valid variable names in JavaScript. For almost every situation, follow these three rules, and you'll be fine:
 - Start every variable name with a lowercase letter. Variable names starting with a number are not valid.
 - Don't use spaces — `camelCaseYourVariableNames` instead of `snake_casing_them`.
 - Don't use JavaScript [reserved words][reserved words] or [future reserved words][future reserved words].
@@ -28,7 +28,7 @@ If you're interested in an exhaustive discussion of what constitutes a valid var
 It's important to note that case matters, so `javaScript`, `javascript`, `JavaScript`, and `JAVASCRIPT` are four different variables.
 
 ## Initializing variables
-The `var` reserved word is the classic way to declare a variable. It's been around since the inception of JavaScript, and it's what you will encounter in any pre-ES2015 code (and in any sloppy code written after ES2015).
+The `var` reserved word is the classic way to declare a variable. It's been around since the inception of JavaScript, and it's what you will encounter in any pre-ES2015 code.
 
 Creating new variables in JavaScript is really a two-step process. First, we declare the variable...
 ```js
@@ -71,6 +71,8 @@ typeof language;
 //=> "string"
 ```
 
+***Top Tip***: When writing JavaScript code, it's good practice to ***never*** set a variable equal to `undefined`. Variables will be `undefined` until we explicitly assign a value, so encountering an `undefined` variable is a strong signal that the variable was declared but not assigned prior to the reference. That's valuable information that we can use while debugging, and it comes at no additional cost to us.
+
 Once a variable has been created with `var`, we can reassign it to our heart's content:
 ```js
 var pi = 3.14159;
@@ -102,7 +104,7 @@ language;
 ```
 
 ## Beyond `var`
-As we alluded to earlier, there is almost no reason to use `var` in a post-ES2015 world. `var` comes with a ton of baggage in the form of scope issues, which we will discuss in the lesson on scope in JavaScript, and allowing developers to play a little too fast and loose with variable declarations.
+Because of its ubiquity in legacy code and StackOverflow posts, it's important to get to know `var`. However, as we alluded to earlier, there is almost no reason to use `var` in a post-ES2015 world. `var` comes with a ton of baggage in the form of scope issues — which we will discuss in the lesson on scope in JavaScript — and by allowing developers to play a little too fast and loose with variable declarations.
 
 With `var`, no error is thrown if you declare a variable twice:
 ```js
@@ -145,8 +147,8 @@ typeof pi;
 
 Using `let` instead of `var` will help you avoid silly errors like declaring the same variable at two different places within your code, but there's an even better option to use as your default: `const`.
 
-Declaring a variable with the `const` reserved word means that not only can it not be redeclared but it also ***cannot be reassigned***. This is a good thing for two reasons:
-1. When we assign a primitive value (a number, string, boolean, etc. — anything except an object) to a variable declared with `const`, we know that variable will _always_ contain the same value.
+Declaring a variable with the `const` reserved word means that not only can it not be redeclared but it also ***cannot be reassigned***. This is a good thing for three reasons:
+1. When we assign a primitive value (any type of data _except_ an object) to a variable declared with `const`, we know that variable will _always_ contain the same value.
 2. When we assign an object to a variable declared with `const`, we know that variable will _always_ point to the same object (though the object's properties can still be modified — more on this in the lesson about objects in JavaScript).
 3. When another developer looks at our code and sees a `const` declaration, they immediately know that variable points to the same object or has the same value every other time it's referenced in the program. For variables declared with `let` or `var`, the developer cannot be so sure and will have to keep track of how those variables change throughout the program. The extra information provided by `const` is valuable, and it comes at no extra cost to you! Just use `const` as much as possible and reap the benefits.
 
