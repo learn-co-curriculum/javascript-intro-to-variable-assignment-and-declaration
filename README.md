@@ -87,7 +87,11 @@ variable scope in JavaScript (which we will tackle in greater depth when we
 cover functions). Don't worry too much right now about what exactly a function
 is; we just want to get used to seeing the word.
 
-Here's how this works — follow along in your console!
+Below is an example of how how this works. If you would like to follow along, in
+your terminal, type `node`. This will open Node and allow you to write
+JavaScript directly in the terminal. Alternatively, using Chrome, you can
+[open a console in your browser's developer tools][devtools] and paste
+JavaScript there as well.
 
 ``` javascript
 // declare the variable
@@ -186,5 +190,7 @@ myNote = "Get cookies"
 
 When we change the value of a variable, _we do not use `var` again_. We simply
 use the `=` to give the variable a new value.
+
+[dev tools]: https://developers.google.com/web/tools/chrome-devtools
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/javascript-intro-to-variable-assignment-and-declaration'>JavaScript Variable Assignment and Declaration</a> on Learn.co and start learning to code for free.</p>
